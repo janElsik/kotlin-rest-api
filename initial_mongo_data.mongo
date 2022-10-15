@@ -1,0 +1,9 @@
+db.pub_customers.insertMany(
+    [
+        {_id:"13RFEE344D", firstName: "Marry", lastName:"Orwell", age:25},
+        {_id:"13RFE3453V", firstName: "Jason", lastName:"Newell", age:18},
+        {_id:"145RCD345A", firstName: "Richard", lastName:"Haskell", age:38},
+        {_id:"13RFE3453D", firstName: "Patrick", lastName:"Red", age:60},
+        {_id:"134TZ9879Q", firstName: "Nela", lastName:"Rosemarry", age:42},
+    ]
+    )
