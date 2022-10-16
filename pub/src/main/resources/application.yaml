@@ -1,0 +1,7 @@
+spring:
+  data:
+    mongodb:
+      uri: "mongodb://172.17.0.3:27017"
+      database: "pub"
+      additionalDatabases:
+        second_db: "pub_secondary"

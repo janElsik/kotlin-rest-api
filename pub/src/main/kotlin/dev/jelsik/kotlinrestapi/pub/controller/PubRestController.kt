@@ -23,14 +23,17 @@ class PubRestController(
         @RequestParam lastName: String,
         @RequestParam age: Int
     ): ResponseEntity<String> {
+        pubHandler.showMenu()
         return if (pubHandler.checkForExistingCustomer(id)) {
             logger.info { "your credentials are:\n id:[$id] \n first name: [$firstName] \n last name: [$lastName] \n age: [$age]" }
             pubHandler.newCustomer(id, firstName, lastName, age)
             ResponseEntity.ok("new customer created!")
+
         } else {
             logger.error("customer with id [$id] already exists!")
             ResponseEntity.badRequest().body("customer with id [$id] already exists!")
         }
+
 
     }
 

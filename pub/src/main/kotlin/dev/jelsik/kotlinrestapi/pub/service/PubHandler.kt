@@ -33,4 +33,8 @@ class PubHandler(
     fun checkForExistingCustomer(id: String): Boolean {
         return pubCustomersRepo.findByIdOrNull(id) == null
     }
+
+    fun showMenu(): MutableList<PubCustomers> {
+        return pubCustomersRepo.findAll()
+    }
 }
