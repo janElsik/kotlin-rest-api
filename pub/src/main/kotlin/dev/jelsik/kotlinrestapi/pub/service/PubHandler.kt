@@ -7,7 +7,7 @@ import org.springframework.data.repository.findByIdOrNull
 import org.springframework.stereotype.Service
 
 private val logger = KotlinLogging.logger {}
-
+//handler for the application - is used as a service component and stands between repos and the controller
 
 @Service
 class PubHandler(
@@ -34,7 +34,5 @@ class PubHandler(
         return pubCustomersRepo.findByIdOrNull(id) == null
     }
 
-    fun showMenu(): MutableList<PubCustomers> {
-        return pubCustomersRepo.findAll()
-    }
+
 }

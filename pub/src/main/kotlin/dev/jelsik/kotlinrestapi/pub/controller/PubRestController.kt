@@ -15,7 +15,9 @@ private val logger = KotlinLogging.logger {}
 class PubRestController(
     private val pubHandler: PubHandler
 ) {
-
+    // this method creates new customer and also checks the id for existing customer
+    // if id already exists, new customer is not created
+    // called by curl -X POST http://localhost:8080/app/visit-pub/new-customer?id=<id>&firstName=<first name>&lastName=<last name>&age=<age>
     @PostMapping("/new-customer")
     fun pubMembershipCreation(
         @RequestParam id: String,
@@ -23,7 +25,7 @@ class PubRestController(
         @RequestParam lastName: String,
         @RequestParam age: Int
     ): ResponseEntity<String> {
-        pubHandler.showMenu()
+
         return if (pubHandler.checkForExistingCustomer(id)) {
             logger.info { "your credentials are:\n id:[$id] \n first name: [$firstName] \n last name: [$lastName] \n age: [$age]" }
             pubHandler.newCustomer(id, firstName, lastName, age)

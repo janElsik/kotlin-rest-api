@@ -1,6 +1,8 @@
 spring:
   data:
     mongodb:
+      #      ip needs to be changed according to ip of mongo db - in this case, it is mongo in docker container,
+      #     find via cat /etc/hosts
       uri: "mongodb://172.17.0.3:27017"
       database: "pub"
       additionalDatabases:
