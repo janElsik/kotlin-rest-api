@@ -6,11 +6,10 @@ plugins {
     id("io.spring.dependency-management") version "1.0.14.RELEASE"
     kotlin("jvm") version "1.6.21"
     kotlin("plugin.spring") version "1.6.21"
-    id("org.springframework.experimental.aot") version "0.12.1"
 }
 
 group = "dev.jelsik.kotlinrestapi"
-version = "0.0.1-SNAPSHOT"
+version = "0.0.1"
 java.sourceCompatibility = JavaVersion.VERSION_17
 
 repositories {
@@ -23,7 +22,11 @@ dependencies {
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
     implementation("org.jetbrains.kotlin:kotlin-reflect")
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
+    implementation("org.springframework.boot", "spring-boot-starter-data-mongodb")
+    implementation("io.github.microutils", "kotlin-logging", "2.1.23")
+
     developmentOnly("org.springframework.boot:spring-boot-devtools")
+
     testImplementation("org.springframework.boot:spring-boot-starter-test")
 }
 
@@ -33,10 +36,10 @@ tasks.withType<KotlinCompile> {
         jvmTarget = "17"
     }
 }
-
-tasks.withType<Test> {
-    useJUnitPlatform()
-}
+//
+//tasks.withType<Test> {
+//    useJUnitPlatform()
+//}
 
 tasks.withType<BootBuildImage> {
     builder = "paketobuildpacks/builder:tiny"
